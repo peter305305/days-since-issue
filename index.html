@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Days Since Last IT/AV Issue</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔌</text></svg>">
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="sign">
+      <div class="sign-inner">
+        <div class="header">
+          <div class="warning-stripe"></div>
+          <h1>DAYS SINCE LAST<br /><span class="highlight">IT / AV ISSUE</span></h1>
+          <div class="warning-stripe"></div>
+        </div>
+
+        <div class="counter-section">
+          <div id="counter" class="counter">0</div>
+          <div class="counter-label">consecutive days</div>
+        </div>
+
+        <div class="record-section">
+          <div class="record">
+            <span class="record-label">ALL-TIME RECORD</span>
+            <span id="record" class="record-value">0</span>
+          </div>
+          <div class="record">
+            <span class="record-label">TOTAL INCIDENTS</span>
+            <span id="incidents" class="record-value">0</span>
+          </div>
+        </div>
+
+        <button id="reset-btn" class="reset-btn">
+          <span class="btn-icon">🚨</span>
+          REPORT AN INCIDENT
+          <span class="btn-icon">🚨</span>
+        </button>
+
+        <div id="last-incident" class="last-incident"></div>
+
+        <div id="incident-log" class="incident-log"></div>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

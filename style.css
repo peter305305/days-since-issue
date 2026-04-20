@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a2e;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(16, 85, 170, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(170, 16, 16, 0.1) 0%, transparent 50%);
+  font-family: 'Inter', sans-serif;
+  padding: 2rem;
+}
+
+.sign {
+  background: #fdd835;
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow:
+    0 0 0 4px #333,
+    0 0 0 8px #fdd835,
+    0 0 0 12px #333,
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  max-width: 520px;
+  width: 100%;
+}
+
+.sign-inner {
+  background: #1c1c1c;
+  border-radius: 14px;
+  padding: 2rem 2rem 1.5rem;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.warning-stripe {
+  height: 12px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #fdd835,
+    #fdd835 10px,
+    #1c1c1c 10px,
+    #1c1c1c 20px
+  );
+  border-radius: 4px;
+  margin: 0.75rem 0;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.highlight {
+  color: #fdd835;
+  font-size: 1.8rem;
+}
+
+.counter-section {
+  margin: 1.5rem 0;
+}
+
+.counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #4caf50;
+  text-shadow: 0 0 40px rgba(76, 175, 80, 0.4);
+  transition: all 0.3s ease;
+}
+
+.counter.danger {
+  color: #f44336;
+  text-shadow: 0 0 40px rgba(244, 67, 54, 0.4);
+}
+
+.counter.warning {
+  color: #ff9800;
+  text-shadow: 0 0 40px rgba(255, 152, 0, 0.4);
+}
+
+.counter.good {
+  color: #4caf50;
+  text-shadow: 0 0 40px rgba(76, 175, 80, 0.4);
+}
+
+.counter.great {
+  color: #00e676;
+  text-shadow: 0 0 40px rgba(0, 230, 118, 0.5);
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 0.25rem;
+}
+
+.record-section {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.record {
+  flex: 1;
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 0.75rem;
+  border: 1px solid #333;
+}
+
+.record-label {
+  display: block;
+  font-size: 0.65rem;
+  color: #888;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.record-value {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fdd835;
+}
+
+.reset-btn {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #f44336;
+  border-radius: 10px;
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.reset-btn:hover {
+  background: rgba(244, 67, 54, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
+}
+
+.reset-btn:active {
+  transform: scale(0.98);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+.last-incident {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #666;
+  min-height: 1.2em;
+}
+
+.incident-log {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.incident-log h3 {
+  font-size: 0.7rem;
+  color: #666;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.incident-entry {
+  font-size: 0.75rem;
+  color: #999;
+  padding: 0.4rem 0.6rem;
+  background: #2a2a2a;
+  border-radius: 6px;
+  margin-bottom: 0.35rem;
+  border-left: 3px solid #f44336;
+}
+
+.incident-entry .date {
+  color: #666;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes flash-red {
+  0% { background: #1c1c1c; }
+  50% { background: #3a1111; }
+  100% { background: #1c1c1c; }
+}
+
+.flash {
+  animation: flash-red 0.4s ease-in-out 2;
+}
+
+@media (max-width: 480px) {
+  body { padding: 1rem; }
+  .sign-inner { padding: 1.5rem 1rem 1rem; }
+  .counter { font-size: 5rem; }
+  .highlight { font-size: 1.4rem; }
+  h1 { font-size: 1.1rem; }
+}
