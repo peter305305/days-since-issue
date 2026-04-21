@@ -16,6 +16,127 @@ body {
     radial-gradient(ellipse at 20% 50%, rgba(16, 85, 170, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 50%, rgba(170, 16, 16, 0.1) 0%, transparent 50%);
   font-family: 'Inter', sans-serif;
+  padding: 0;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 320px;
+  min-width: 320px;
+  background: #141422;
+  border-right: 1px solid #2a2a3a;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 1.5rem 1.25rem 1rem;
+  border-bottom: 1px solid #2a2a3a;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.sidebar-header h2 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fdd835;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sidebar-count {
+  font-size: 0.7rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.sidebar-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem;
+}
+
+.sidebar-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-list::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+.sidebar-empty {
+  color: #555;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-style: italic;
+}
+
+.sidebar-entry {
+  padding: 0.65rem 0.75rem;
+  background: #1c1c2e;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid #f44336;
+  transition: background 0.15s ease;
+}
+
+.sidebar-entry:hover {
+  background: #222238;
+}
+
+.sidebar-entry .entry-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #f44336;
+  margin-bottom: 0.2rem;
+}
+
+.sidebar-entry .entry-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 0.15rem;
+}
+
+.sidebar-entry .entry-time {
+  font-size: 0.65rem;
+  color: #666;
+}
+
+.sidebar-entry .entry-note {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.3rem;
+  line-height: 1.35;
+}
+
+.sidebar-entry .entry-streak {
+  font-size: 0.65rem;
+  color: #555;
+  margin-top: 0.2rem;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
 }
 
@@ -180,33 +301,6 @@ h1 {
   min-height: 1.2em;
 }
 
-.incident-log {
-  margin-top: 1rem;
-  text-align: left;
-}
-
-.incident-log h3 {
-  font-size: 0.7rem;
-  color: #666;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.incident-entry {
-  font-size: 0.75rem;
-  color: #999;
-  padding: 0.4rem 0.6rem;
-  background: #2a2a2a;
-  border-radius: 6px;
-  margin-bottom: 0.35rem;
-  border-left: 3px solid #f44336;
-}
-
-.incident-entry .date {
-  color: #666;
-}
 
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
@@ -230,8 +324,22 @@ h1 {
   animation: flash-red 0.4s ease-in-out 2;
 }
 
-@media (max-width: 480px) {
-  body { padding: 1rem; }
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid #2a2a3a;
+    order: 2;
+  }
+  .main {
+    order: 1;
+    padding: 1.5rem 1rem;
+  }
   .sign-inner { padding: 1.5rem 1rem 1rem; }
   .counter { font-size: 5rem; }
   .highlight { font-size: 1.4rem; }

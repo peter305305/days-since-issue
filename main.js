@@ -39,7 +39,8 @@ function render(state) {
   const recordEl = document.getElementById('record')
   const incidentsEl = document.getElementById('incidents')
   const lastIncidentEl = document.getElementById('last-incident')
-  const logEl = document.getElementById('incident-log')
+  const sidebarListEl = document.getElementById('sidebar-list')
+  const sidebarCountEl = document.getElementById('sidebar-count')
 
   counterEl.textContent = days
   counterEl.className = `counter ${getCounterClass(days)}`
@@ -60,26 +61,36 @@ function render(state) {
     lastIncidentEl.textContent = 'No incidents recorded yet. Enjoy the peace.'
   }
 
+  // Render sidebar
+  sidebarCountEl.textContent = `${state.incidents.length} issue${state.incidents.length !== 1 ? 's' : ''}`
+
   if (state.incidents.length > 0) {
-    const recentIncidents = state.incidents.slice(-5).reverse()
-    logEl.innerHTML = `
-      <h3>Recent Incident Log</h3>
-      ${recentIncidents
-        .map(
-          (inc) => `
-        <div class="incident-entry">
-          <span class="date">${new Date(inc.date).toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
-          })}</span>
-          ${inc.note ? ` &mdash; ${inc.note}` : ''}
-          ${inc.streak > 0 ? ` <span style="color:#666">(ended ${inc.streak}-day streak)</span>` : ''}
-        </div>
-      `
-        )
-        .join('')}
-    `
+    const allIncidents = [...state.incidents].reverse()
+    sidebarListEl.innerHTML = allIncidents
+      .map((inc, i) => {
+        const num = state.incidents.length - i
+        const date = new Date(inc.date)
+        return `
+          <div class="sidebar-entry">
+            <div class="entry-number">INCIDENT #${num}</div>
+            <div class="entry-date">${date.toLocaleDateString('en-US', {
+              weekday: 'short',
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            })}</div>
+            <div class="entry-time">${date.toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: '2-digit',
+            })}</div>
+            ${inc.note ? `<div class="entry-note">${inc.note}</div>` : ''}
+            ${inc.streak > 0 ? `<div class="entry-streak">Ended a ${inc.streak}-day streak</div>` : ''}
+          </div>
+        `
+      })
+      .join('')
+  } else {
+    sidebarListEl.innerHTML = '<div class="sidebar-empty">No incidents yet. Fingers crossed.</div>'
   }
 }
 
